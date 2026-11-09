@@ -20,7 +20,7 @@
 
 <table v-if="pegawais?.length > 0" class="table table-striped mt-3 mb-3">
     <tr>
-        <th>Nomor Pegawai</th>
+        <th>No.</th>
         <th>Nama Pegawai</th>
         <th>Status Kehadiran</th>
         <th>Jam Hadir</th>
@@ -31,8 +31,8 @@
         <th>Kehadiran</th>
         @endauth
     </tr>
-    <tr v-for="pegawai in pegawais">
-        <td>@{{ pegawai.no_pegawai }}</td>
+    <tr v-for="(pegawai, index) in pegawais">
+        <td>@{{ index+1 }}</td>
         <td>@{{ pegawai.nama_pegawai }}</td>
         <td>@{{ pegawai.status_kehadiran }}</td>
         <td>@{{ formatTime(pegawai.waktu_hadir) }}</td>

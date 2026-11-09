@@ -30,7 +30,6 @@ class PegawaiController extends Controller
     public function store(Request $request)
     {
         $validated = $request -> validate([
-            'no_pegawai'=>'required|string|max:255',
             'nama_pegawai'=>'required|string|max:255',
         ]);
 
@@ -61,7 +60,6 @@ class PegawaiController extends Controller
     public function update(Request $request, Pegawai $pegawai)
     {
         $validated = $request -> validate([
-            'no_pegawai'=>'required|string|max:255',
             'nama_pegawai'=>'required|string|max:255',
             'keterangan'=>'string|max:255',
         ]);
@@ -96,8 +94,8 @@ class PegawaiController extends Controller
         $data = ['status_kehadiran' => $status];
 
         match ($status) {
-            'Hadir'       => $data['waktu_hadir'] = $pegawai->waktu_hadir ?? now(), // idempotent: keep first clock-in time
-            'Pulang'      => $data['waktu_pulang'] = now(),
+            'Hadir' => $data['waktu_hadir'] = $pegawai->waktu_hadir ?? now(),
+            'Pulang' => $data['waktu_pulang'] = now(),
             'Absen' => $data += ['waktu_hadir' => null, 'waktu_pulang' => null],
         };
 

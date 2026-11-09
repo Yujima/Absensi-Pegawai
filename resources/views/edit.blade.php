@@ -7,7 +7,6 @@
 <form action="{{ route('pegawai.update', $pegawai->id) }}" method="post">
     @csrf
     @method('PUT')
-    <input-component for="no_peagwai" name="no_pegawai" id="no_pegawai" value="{{ old('no_pegawai', $pegawai->no_pegawai) }}">Nomor Pegawai</input-component>
     <input-component for="nama_pegawai" name="nama_pegawai" id="nama_pegawai" value="{{ old('nama_pegawai', $pegawai->nama_pegawai) }}">Nama Pegawai</input-component>
     <input-component for="keterangan" name="keterangan" id="keterangan" value="{{ old('keterangan', $pegawai->keterangan) }}">Keterangan</input-component>
     <btn-component type="submit">Ubah</btn-component>

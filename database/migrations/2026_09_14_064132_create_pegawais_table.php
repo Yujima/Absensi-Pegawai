@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('pegawais', function (Blueprint $table) {
             $table->id();
-            $table->string('no_pegawai')->unique();
-            $table->string('nama_pegawai');
+            $table->string('nama_pegawai')->unique();
             $table->string('status_kehadiran')->default('Absen');
             $table->dateTime('waktu_hadir')->nullable();
             $table->dateTime('waktu_pulang')->nullable();
